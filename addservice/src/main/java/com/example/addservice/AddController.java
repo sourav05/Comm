@@ -21,8 +21,7 @@ public class AddController {
 	public String add(@PathVariable(value="num1") int number1, @PathVariable(value="num2") int number2){
 		System.out.println("Service Registered : " + discoveryClient.getInstances("add-service").get(0)
 				.getUri()+"/add/"+number1+"/"+number2);
-		ResponseEntity<String> response = template.getForEntity(discoveryClient.getInstances("add-service").get(0)
-																.getUri()+"/add/"+number1+"/"+number2, String.class);	
+		ResponseEntity<String> response = template.getForEntity("http://add-service/add/"+number1+"/"+number2, String.class);	
 		return response.getBody();
 	}
 }
