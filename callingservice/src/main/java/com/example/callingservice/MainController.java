@@ -17,7 +17,9 @@ public class MainController {
 	@GetMapping("add/{num1}/{num2}")
 	public String add(@PathVariable(value="num1") int number1, @PathVariable(value="num2") int number2){
 		RestTemplate template = new RestTemplate();
-		ResponseEntity<String> response = template.getForEntity(this.discoveryClient.getInstances("AddService")
+		System.out.println("DISCOVERY_CLIENT ***********  " + this.discoveryClient);
+		System.out.println("this.discoveryClient.getInstances('add-service') = " + this.discoveryClient.getInstances("add-service"));
+		ResponseEntity<String> response = template.getForEntity(this.discoveryClient.getInstances("add-service")
 																	.get(0).getUri() + "/add/" + number1 + "/" + number2, String.class);
 		return response.getBody();
 	}
