@@ -14,11 +14,11 @@ public class AddController {
 	@Autowired
 	private DiscoveryClient discoveryClient;
 	
+	@Autowired
 	private RestTemplate template;
 	
 	@GetMapping(value="add/{num1}/{num2}")
 	public String add(@PathVariable(value="num1") int number1, @PathVariable(value="num2") int number2){
-		template = new RestTemplate();
 		System.out.println("Service Registered : " + discoveryClient.getInstances("add-service").get(0)
 				.getUri()+"/add/"+number1+"/"+number2);
 		ResponseEntity<String> response = template.getForEntity("http://add-service/add/"+number1+"/"+number2, String.class);	
