@@ -1,1 +1,4 @@
+com\example\addservice\AddController.class
 com\example\addservice\AddserviceApplication.class
+com\example\addservice\RibbonConfiguration.class
+com\example\addservice\AddServiceConfig.class
