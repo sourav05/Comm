@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@RibbonClient(name="AddService", configuration = RibbonConfiguration.class)
+@RibbonClient(name="add-service", configuration = RibbonConfiguration.class)
 public class AddserviceApplication {
 
 	public static void main(String[] args) {
